@@ -3,6 +3,7 @@ import Loader from "../components/Lodder";
 import SearchBar from "../components/searchBar";
 import { MOVIE_API_KEY } from "../config/config"
 import { useEffect, useState } from "react";
+import { Scrollbar } from "react-scrollbars-custom";
 
 
 interface Movie {
@@ -63,33 +64,35 @@ export default function Home() {
         searchMovie("Batman")
       }, [])
     return (
-      <>
-        <SearchBar onSearch={searchMovie}/>
-        {loading ? (
-          <Loader />
-        ) : (
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "20px",
-              justifyContent: "center",
-              marginTop: "30px",
-            }}
-          >
-            {movies.map((movie) => (
-              <CardField
-                key={movie.imdbID}
-                Title={movie.Title}
-                Year={movie.Year}
-                imdbID={movie.imdbID}
-                Type={movie.Type}
-                Poster={movie.Poster}
-              />
-            ))}
-          </div>
-        )}
-      </>
+      <div className="h-screen w-screen">
+        <Scrollbar style={{ width: "100%", height: "100%" }}>
+          <SearchBar onSearch={searchMovie} />
+          {loading ? (
+            <Loader />
+          ) : (
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "20px",
+                justifyContent: "center",
+                marginTop: "30px",
+              }}
+            >
+              {movies.map((movie) => (
+                <CardField
+                  key={movie.imdbID}
+                  Title={movie.Title}
+                  Year={movie.Year}
+                  imdbID={movie.imdbID}
+                  Type={movie.Type}
+                  Poster={movie.Poster}
+                />
+              ))}
+            </div>
+          )}
+        </Scrollbar>
+      </div>
     );
 
   }
