@@ -39,6 +39,7 @@ export default function Home() {
       try {
         const response = await fetch(`${MOVIE_API_KEY}&s=${title}`);
         const data = await response.json();
+        console.log(response);
 
         if (data.Response === "True") {
           setMovies(data.Search);
@@ -56,12 +57,14 @@ export default function Home() {
     };
     
     
+    
+    
       useEffect(() => {
         searchMovie("Batman")
       }, [])
     return (
       <>
-        <SearchBar />
+        <SearchBar onSearch={searchMovie}/>
         {loading ? (
           <Loader />
         ) : (
@@ -88,4 +91,5 @@ export default function Home() {
         )}
       </>
     );
-}
+
+  }
