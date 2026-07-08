@@ -1,6 +1,4 @@
-import { useEffect } from 'react'
 import './App.css'
-import { MOVIE_API_KEY } from './config/config';
 import Home from './Pages/Home';
 import background from "../src/assets/Movie-app-bg.jpg"
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import { MOVIE_API_KEY } from "../config/config";
@@ -57,7 +57,7 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
           🎬 MovieVerse
         </h3>
       </div>
-      <div className=" py-0 px-4">
+      <div className=" py-0 px-4 ">
         <div className="flex items-center justify-center">
           <Autocomplete
             className="border-none"
@@ -68,7 +68,7 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
             options={myOptions}
             renderInput={(params) => (
               <TextField
-                className="rounded-xl bg shadow-2xl border-dotted"
+                className="rounded-xl bg shadow-2xl border-dotted bg-white"
                 {...params}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 onKeyDown={(e) => {
@@ -82,7 +82,7 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
             )}
           />
           <button
-            className="bg-blue-600  hover:bg-blue-700 text-white px-5 rounded-lg flex items-center justify-center m-5 p-3 flex-col-reverse "
+            className="bg-blue-600  hover:bg-blue-700 text-white px-5 flex items-center justify-center m-5 p-3 flex-col-reverse  rounded-4xl"
             onClick={() => onSearch(searchTerm)}
           >
             <FaSearch size={18} />
