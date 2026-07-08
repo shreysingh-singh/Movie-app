@@ -14,21 +14,14 @@ interface Movie {
   Type: string;
 }
 
-const movie = 
-  {
-    "Title": "Batman Begins",
-    "Year": "2005",
-    "imdbID": "tt0372784",
-    "Type": "movie",
-    "Poster": "https://m.media-amazon.com/images/M/MV5BMzA2NDQzZDEtNDU5Ni00YTlkLTg2OWEtYmQwM2Y1YTBjMjFjXkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg"
-}
+
 
 
 export default function Home() {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [searchTerm, setSearchTerm] = useState("");
+  
 
 
 
@@ -67,6 +60,7 @@ export default function Home() {
       <div className="h-screen w-screen">
         <Scrollbar style={{ width: "100%", height: "100%" }}>
           <SearchBar onSearch={searchMovie} />
+          {error && <p>{error}</p>}
           {loading ? (
             <Loader />
           ) : (
